@@ -16,28 +16,28 @@ public class ArrayStack<T> implements Stack<T>
     @Override
     public void push(T item)
     {
-        if (top == (a.length-1)) resize(2*a.length);
-        a[++top] = item;
+        if (top == (a.length-1)) resize(2*a.length);// add size
+        a[++top] = item;// add item
     }
 
     @Override
     public T pop() throws Exception
     {
-        if (empty())
+        if (empty()) //make sure the stack is not empty before pop thing out
         {
             throw new Exception("Try again! ");
         }
-        T item = a[top];
+        T item = a[top];//pop item
         a[top] = null;
         top--;
-        if (top > 0 && top == (a.length-1)/4) resize(a.length/2);
+        if (top > 0 && top == (a.length-1)/4) resize(a.length/2);//shrink size
         return item;
     }
 
     private void resize(int c)
     {
         assert c >= top;
-        T[] temp = (T[]) new Object[c];
+        T[] temp = (T[]) new Object[c];// resize array
         for (int i = 0; i <= top; i++)
         {
             temp[i] = a[i];
@@ -53,13 +53,13 @@ public class ArrayStack<T> implements Stack<T>
         {
             throw new Exception("Try again! ");
         }
-        return a[top];
+        return a[top];// return last item
     }
 
     @Override
     public boolean empty()
     {
 
-        return top == -1;
+        return top == -1; // check if empty
     }
 }
