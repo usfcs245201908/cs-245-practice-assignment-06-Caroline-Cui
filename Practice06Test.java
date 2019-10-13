@@ -1,6 +1,3 @@
-import java.util.regex.*;
-
-
 public class Practice06Test {
 	
 	protected Queue<String> queue;
@@ -19,10 +16,18 @@ public class Practice06Test {
 	
 	public void clearData() {
 		while (!queue.empty()) {
-			queue.dequeue();
+			try {
+				queue.dequeue();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		while (!stack.empty()) {
-			stack.pop();
+			try {
+				stack.pop();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -38,8 +43,12 @@ public class Practice06Test {
 		}
 
 		while (! stack.empty() && ! queue.empty()) {
-			if (! stack.pop().equals(queue.dequeue())) {
-				return false;
+			try {
+				if (! stack.pop().equals(queue.dequeue())) {
+					return false;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 		

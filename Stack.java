@@ -1,5 +1,6 @@
 
-public interface Stack<T> {
+public interface Stack<T>
+{
 	
 	public void push(T item);
 	public T pop() throws Exception;
